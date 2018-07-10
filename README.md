@@ -1,5 +1,5 @@
 # react-native-devtodev
-React Native bridge to the DevToDev(https://www.devtodev.com/) on both iOS and Android.
+React Native bridge to the DevToDev(https://www.devtodev.com/) on Android.
 
 ## Installation
 
