@@ -11,5 +11,11 @@ React Native bridge to the DevToDev(https://www.devtodev.com/) on Android.
 ```js
 import DevToDev from 'react-native-devtodev';
 
-// Init
+// Initialize the library
 DevToDev.init('APP_ID', 'SECRET_KEY');
+
+// Method allows to initialize the user. It applies when SDK initialization or user relogin.
+DevToDev.setUserId('activeUserId');
+
+// Method sets the current user level. Using this method allows to actualize the SDK user data in game cross-platform applications.
+DevToDev.setCurrentLevel(currentLevel);
