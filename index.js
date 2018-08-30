@@ -1,5 +1,4 @@
 // @flow
-
 import { NativeModules } from 'react-native';
 const { DevToDev } = NativeModules;
 
@@ -12,5 +11,8 @@ export default {
     },
     setUserId(activeUserId: string) {
         DevToDev.setUserId(activeUserId);
+    },
+    customEvent(eventName: string, eventParams: { [string]: string | number }) {
+        DevToDev.customEvent(eventName, eventParams);
     },
 };

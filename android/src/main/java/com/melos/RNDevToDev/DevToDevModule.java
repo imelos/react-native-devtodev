@@ -16,6 +16,7 @@ import java.lang.Exception;
 import org.json.JSONObject;
 
 import com.devtodev.core.DevToDev;
+import com.devtodev.core.data.metrics.aggregated.events.CustomEventParams;
 
 public class DevToDevModule extends ReactContextBaseJavaModule {
     final static String ModuleName = "DevToDev";
@@ -42,5 +43,32 @@ public class DevToDevModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setUserId(String activeUserId) {
         DevToDev.setUserId(activeUserId);
+    }
+
+    @ReactMethod
+    public void customEvent(String eventName, ReadableMap eventParams) {
+        CustomEventParams params = new CustomEventParams();
+        ReadableMapKeySetIterator iterator = eventParams.keySetIterator();
+        while (iterator.hasNextKey()) {
+            String paramName = iterator.nextKey();
+            try {
+                switch (eventParams.getType(paramName)) {
+                    case Number:
+                        params.putDouble(paramName,eventParams.getDouble(paramName));
+                        break;
+                    case String:
+                        Log.d(ModuleName, eventParams.getString(paramName));
+
+                        params.putString(paramName,eventParams.getString(paramName));
+                        break;
+                    default:
+                        break;
+                }
+                Log.d(ModuleName, paramName);
+            } catch (Exception ex) {
+                Log.d(ModuleName, "convertReadableMapToJson fail: " + ex);
+            }
+        }
+        DevToDev.customEvent(eventName, params);
     }
 }
