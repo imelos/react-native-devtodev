@@ -57,16 +57,13 @@ public class DevToDevModule extends ReactContextBaseJavaModule {
                         params.putDouble(paramName,eventParams.getDouble(paramName));
                         break;
                     case String:
-                        Log.d(ModuleName, eventParams.getString(paramName));
-
                         params.putString(paramName,eventParams.getString(paramName));
                         break;
                     default:
                         break;
                 }
-                Log.d(ModuleName, paramName);
             } catch (Exception ex) {
-                Log.d(ModuleName, "convertReadableMapToJson fail: " + ex);
+                Log.d(ModuleName, "put CustomEventParams fail: " + ex);
             }
         }
         DevToDev.customEvent(eventName, params);

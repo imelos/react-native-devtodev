@@ -1,5 +1,6 @@
 # react-native-devtodev
 React Native bridge to the DevToDev(https://www.devtodev.com/) on Android.
+Not all methods is supported yet
 
 ## Installation
 
@@ -20,5 +21,5 @@ DevToDev.setUserId(activeUserId: string);
 // Method sets the current user level. Using this method allows to actualize the SDK user data in game cross-platform applications.
 DevToDev.setCurrentLevel(currentLevel: number);
 
-// Custom event with params
-DevToDev.customEvent('eventName', { [string]: string | number });
+// Custom event with params object
+DevToDev.customEvent(eventName: 'string', { [string]: string | number });
