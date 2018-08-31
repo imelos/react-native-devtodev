@@ -47,25 +47,31 @@ public class DevToDevModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void customEvent(String eventName, ReadableMap eventParams) {
+        if (eventName == null) {
+            return;
+        }
         CustomEventParams params = new CustomEventParams();
-        ReadableMapKeySetIterator iterator = eventParams.keySetIterator();
-        while (iterator.hasNextKey()) {
-            String paramName = iterator.nextKey();
-            try {
-                switch (eventParams.getType(paramName)) {
-                    case Number:
-                        params.putDouble(paramName,eventParams.getDouble(paramName));
-                        break;
-                    case String:
-                        params.putString(paramName,eventParams.getString(paramName));
-                        break;
-                    default:
-                        break;
+        if (eventParams != null) {
+            ReadableMapKeySetIterator iterator = eventParams.keySetIterator();
+            while (iterator.hasNextKey()) {
+                String paramName = iterator.nextKey();
+                try {
+                    switch (eventParams.getType(paramName)) {
+                        case Number:
+                            params.putDouble(paramName,eventParams.getDouble(paramName));
+                            break;
+                        case String:
+                            params.putString(paramName,eventParams.getString(paramName));
+                            break;
+                        default:
+                            break;
+                    }
+                } catch (Exception ex) {
+                    Log.d(ModuleName, "put CustomEventParams fail: " + ex);
                 }
-            } catch (Exception ex) {
-                Log.d(ModuleName, "put CustomEventParams fail: " + ex);
             }
         }
+
         DevToDev.customEvent(eventName, params);
     }
 }

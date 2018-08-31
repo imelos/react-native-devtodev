@@ -12,7 +12,7 @@ export default {
     setUserId(activeUserId: string) {
         DevToDev.setUserId(activeUserId);
     },
-    customEvent(eventName: string, eventParams: { [string]: string | number }) {
+    customEvent(eventName: string, eventParams?: { [string]: string | number }) {
         DevToDev.customEvent(eventName, eventParams);
     },
 };
