@@ -22,4 +22,7 @@ DevToDev.setUserId(activeUserId: string);
 DevToDev.setCurrentLevel(currentLevel: number);
 
 // Custom event with params object
-DevToDev.customEvent(eventName: 'string', { [string]: string | number });
+DevToDev.customEvent(eventName: string, { [string]: string | number });
+
+// Player has reached a new level
+DevToDev.levelUp(level: number);
