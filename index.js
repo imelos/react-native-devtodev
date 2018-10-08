@@ -15,4 +15,7 @@ export default {
     customEvent(eventName: string, eventParams?: { [string]: string | number }) {
         DevToDev.customEvent(eventName, eventParams);
     },
+    levelUp(level: number) {
+        DevToDev.levelUp(level);
+    },
 };

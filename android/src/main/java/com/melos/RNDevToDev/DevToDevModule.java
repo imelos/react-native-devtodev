@@ -46,6 +46,11 @@ public class DevToDevModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void levelUp(int level) {
+        DevToDev.levelUp(level);
+    }
+
+    @ReactMethod
     public void customEvent(String eventName, ReadableMap eventParams) {
         if (eventName == null) {
             return;
