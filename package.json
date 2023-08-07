@@ -1,6 +1,6 @@
 {
   "name": "react-native-devtodev",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "React native bridge for DevToDev",
   "main": "index.js",
   "scripts": {
