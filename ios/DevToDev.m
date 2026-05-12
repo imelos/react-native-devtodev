@@ -14,11 +14,10 @@ RCT_EXPORT_MODULE();
   return NO;
 }
 
-RCT_EXPORT_METHOD(init:(NSString *)appId secretKey:(NSString *)secretKey)
+RCT_EXPORT_METHOD(init:(NSString *)appId)
 {
   DTDAnalyticsConfiguration *configuration = [[DTDAnalyticsConfiguration alloc] init];
   [DTDAnalytics applicationKey:appId configuration:configuration];
-  (void)secretKey;
 }
 
 RCT_EXPORT_METHOD(setCurrentLevel:(nonnull NSNumber *)currentLevel)

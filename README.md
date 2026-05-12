@@ -29,4 +29,4 @@ DevToDev.customEvent(eventName: string, { [string]: string | number });
 DevToDev.levelUp(level: number);
 ```
 
-On iOS the DevToDev SDK uses only the application key, so the second `secretKey` argument is accepted for API compatibility with Android and ignored by the native iOS bridge.
+On iOS only the first `appId` argument is used. The JS wrapper does not pass `secretKey` to the native iOS bridge.
