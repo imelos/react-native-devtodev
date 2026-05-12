@@ -1,11 +1,12 @@
 # react-native-devtodev
-React Native bridge to the DevToDev(https://www.devtodev.com/) on Android.
+React Native bridge to the DevToDev(https://www.devtodev.com/) on Android and iOS.
 Not all methods is supported yet
 
 ## Installation
 
 1. `npm install --save react-native-devtodev`
 2. `react-native link react-native-devtodev`
+3. For iOS, run `pod install` in your app's `ios` directory
 
 ## Usage
 
@@ -26,3 +27,6 @@ DevToDev.customEvent(eventName: string, { [string]: string | number });
 
 // Player has reached a new level
 DevToDev.levelUp(level: number);
+```
+
+On iOS the DevToDev SDK uses only the application key, so the second `secretKey` argument is accepted for API compatibility with Android and ignored by the native iOS bridge.
